@@ -1,0 +1,206 @@
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  font-family: var(--font-inter), Arial, Helvetica, sans-serif;
+  @apply bg-background text-foreground;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-image: var(--background-gradient);
+}
+
+@layer base {
+  :root {
+    /* Light Theme (Default - Based on User Request) */
+    --background: 200 27% 94%; /* #F0F4EF */
+    --foreground: 207 48% 10%; /* #0D1821 */
+    --background-end: 200 27% 90%; /* Slightly darker for gradient */
+
+    --card: 0 0% 100%; /* White cards */
+    --card-foreground: 207 48% 10%; /* #0D1821 */
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 207 48% 10%;
+
+    --primary: 210 31% 31%; /* #344966 */
+    --primary-foreground: 200 27% 94%; /* #F0F4EF - Light text on primary */
+    --primary-hover: 210 31% 26%; /* Darker shade of #344966 */
+
+    --secondary: 213 58% 82%; /* #B4CDED */
+    --secondary-foreground: 207 48% 10%; /* #0D1821 */
+
+    --muted: 210 40% 90%; /* Light gray */
+    --muted-foreground: 215 20% 45%; /* Medium gray text */
+
+    --accent: 213 58% 77%; /* Lighter shade of #B4CDED for hovers, or can be #B4CDED itself */
+    --accent-foreground: 207 48% 10%; /* #0D1821 */
+    
+    --destructive: 0 70% 50%; /* Default red */
+    --destructive-foreground: 0 0% 98%;
+
+    --success: 145 81% 33%; /* #109648 - Specific Green */
+    --success-foreground: 0 0% 98%; /* White/very light text on success green */
+
+    --border: 210 20% 80%; /* Lighter border for light theme */
+    --input: 0 0% 93%; 
+    --input-border: 210 20% 75%;
+    --input-focus-border: 210 31% 31%; /* #344966 */
+    --ring: 210 31% 31%; /* #344966 */
+
+    /* Charts: Light theme appropriate colors */
+    --chart-1: 210 31% 41%; /* Darker primary for prominent bar/line */
+    --chart-2: 210 31% 71%; /* Lighter primary for secondary bar/line */
+    --chart-3: 145 63% 42%; 
+    --chart-4: 35 92% 60%; 
+    --chart-5: 215 20% 50%; 
+
+    /* Dashboard Specific - Light Theme */
+    --dashboard-kpi-alunos-bg: 210 20% 88%;       /* Light gray */
+    --dashboard-kpi-alunos-fg: 207 48% 10%;       /* Dark Text */
+    --dashboard-kpi-presenca-bg: 40 50% 85%;     /* Light Beige */
+    --dashboard-kpi-presenca-fg: 207 48% 10%;     /* Dark Text */
+    --dashboard-kpi-classes-bg: 145 30% 80%;     /* Light Green */
+    --dashboard-kpi-classes-fg: 145 50% 25%;     /* Dark Green Text */
+    --dashboard-kpi-eventos-bg: 30 50% 80%;      /* Light Orange-brown */
+    --dashboard-kpi-eventos-fg: 30 60% 25%;      /* Dark Brown Text */
+    
+    /* Sidebar and Header common base for light theme */
+    --sidebar-background: 210 31% 20%; /* Dark blue-gray */
+    --sidebar-foreground: 0 0% 98%; /* Almost white */
+    --sidebar-primary: 200 27% 94%; /* Light for active item bg */
+    --sidebar-primary-foreground: 210 31% 20%; /* Dark text for active item */
+    --sidebar-accent: 210 31% 25%; /* Darker for hover */
+    --sidebar-accent-foreground: 0 0% 98%; /* Light text for hover */
+    --sidebar-border: 210 31% 25%;
+    --sidebar-ring: 200 27% 94%;
+
+    --radius: 0.5rem;
+    --background-gradient: linear-gradient(180deg, hsl(var(--background)) 0%, hsl(var(--background-end)) 100%);
+    --button-metallic-foreground: hsl(var(--foreground)); 
+    --metallic-gradient-card: transparent; 
+    --metallic-gradient-button: transparent;
+    --metallic-gradient-button-hover: transparent;
+  }
+
+  .dark {
+    /* Dark Theme (Based on User-provided Image and general dark mode principles) */
+    --background: 220 15% 10%;        /* #14171C - Very dark gray/black */
+    --foreground: 210 40% 98%;        /* #F7FAFC - Almost white */
+    --background-end: 220 15% 5%;    /* Even darker for gradient */
+
+    --card: 220 15% 15%;              /* #1F2329 - Slightly lighter dark gray for cards */
+    --card-foreground: 210 40% 98%;   /* #F7FAFC */
+
+    --popover: 220 15% 12%;           /* #1A1D21 */
+    --popover-foreground: 210 40% 98%;
+
+    --primary: 210 31% 66%;           /* Lighter blue-gray for primary actions in dark theme #879AB3 */
+    --primary-foreground: 220 15% 10%; /* #14171C - Dark text on primary */
+    --primary-hover: 210 31% 56%;     /* Slightly darker primary for hover */
+
+    --secondary: 220 15% 25%;         /* #363B42 */
+    --secondary-foreground: 210 40% 98%;
+
+    --muted: 220 15% 20%;            /* #2A2E33 */
+    --muted-foreground: 210 25% 75%;  /* #AAB0BB */
+
+    --accent: 190 70% 50%;             /* Teal/blue for active nav item #29B6F6 */
+    --accent-foreground: 220 15% 10%;  /* #14171C - Dark text for this accent */
+    
+    --destructive: 0 63% 40%; 
+    --destructive-foreground: 210 40% 98%;
+
+    --success: 145 63% 42%; 
+    --success-foreground: 0 0% 98%;
+
+    --border: 220 15% 25%;            /* #363B42 - Subtle border */
+    --input: 220 15% 18%;             /* #25292E */
+    --input-border: 220 15% 30%;
+    --input-focus-border: 210 31% 66%; 
+    --ring: 210 31% 66%;           
+
+    /* Charts: Dark theme from image */
+    --chart-1: 210 40% 80%; /* Light gray for prominent bar/line */
+    --chart-2: 210 40% 55%; /* Darker gray for secondary bar/line */
+    --chart-3: 250 70% 85%; /* Light purple accent */
+    --chart-4: 190 70% 60%; /* Teal/blue */
+    --chart-5: 210 25% 65%; /* Muted text color */
+
+    /* Dashboard Specific - Dark Theme (Inspired by image) */
+    --dashboard-kpi-alunos-bg: 220 10% 55%;      /* Gray: #7F848D */
+    --dashboard-kpi-alunos-fg: 0 0% 100%;        /* White Text */
+    --dashboard-kpi-presenca-bg: 40 40% 70%;    /* Beige: #D1C0A9 */
+    --dashboard-kpi-presenca-fg: 207 48% 10%;    /* Dark Text */
+    --dashboard-kpi-classes-bg: 145 40% 45%;    /* Green: #4F9D69 */
+    --dashboard-kpi-classes-fg: 0 0% 100%;       /* White Text */
+    --dashboard-kpi-eventos-bg: 30 45% 50%;     /* Orange-brown: #B07A4F */
+    --dashboard-kpi-eventos-fg: 0 0% 100%;       /* White Text */
+
+    /* Sidebar and Header common base for dark theme (from image if available, or consistent dark) */
+    --sidebar-background: 220 15% 15%; /* #1F2329 - Matches card background for better distinction */
+    --sidebar-foreground: 210 40% 98%; /* Light text */
+    --sidebar-primary: 210 31% 66%; /* Primary accent for active item bg */
+    --sidebar-primary-foreground: 220 15% 10%; /* Dark text for active item */
+    --sidebar-accent: 220 15% 22%; /* Darker for hover, slightly lighter than border */
+    --sidebar-accent-foreground: 210 40% 98%; /* Light text for hover */
+    --sidebar-border: 220 15% 25%;
+    --sidebar-ring: 210 31% 66%;
+    
+    --background-gradient: linear-gradient(180deg, hsl(var(--background)) 0%, hsl(var(--background-end)) 100%);
+    --button-metallic-foreground: hsl(var(--primary-foreground));
+    --metallic-gradient-card: transparent; 
+    --metallic-gradient-button: transparent;
+    --metallic-gradient-button-hover: transparent;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply text-foreground;
+    min-height: 100vh;
+  }
+  *:focus-visible {
+    @apply outline-none ring-2 ring-offset-2 ring-offset-background;
+    ring-color: hsl(var(--ring));
+  }
+   .page-title {
+    @apply text-2xl font-bold text-foreground pb-2 border-b border-border/30;
+  }
+  /* Smooth scrollbar for webkit browsers */
+  ::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+  }
+  ::-webkit-scrollbar-track {
+    background: hsl(var(--background) / 0.5);
+    border-radius: 10px;
+  }
+  ::-webkit-scrollbar-thumb {
+    background: hsl(var(--muted));
+    border-radius: 10px;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: hsl(var(--muted-foreground) / 0.7);
+  }
+}
+
+/* Page fade-in animation */
+.fade-in-page {
+  animation: fadeIn 0.3s ease-out forwards;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
